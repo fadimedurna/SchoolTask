@@ -3,24 +3,24 @@ package tr.edu.mu.ceng.mad.myapplicationme;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import tr.edu.mu.ceng.mad.myapplicationme.dummy.DummyContent.DummyItem;
 
 import java.util.ArrayList;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyCoursesRecyclerViewAdapter extends
         RecyclerView.Adapter<MyCoursesRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<Course> mValues;
-    private CoursesFragment.OnCourseListInteractionListener mListener;
+    private ArrayList<Course> mValues; //dersler liste
+    private CoursesFragment.OnCourseListInteractionListener mListener; //mContext
 
     public MyCoursesRecyclerViewAdapter(ArrayList<Course> mValues,
                                         CoursesFragment.OnCourseListInteractionListener
@@ -39,13 +39,18 @@ public class MyCoursesRecyclerViewAdapter extends
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Course courses = mValues.get(position);
+        final Course course= mValues.get(position);
         //holder.mItem = mValues.get(position);
-        holder.mCourseView.setText(mValues.get(position).getCourse_name());
-        holder.mTeacherView.setText(mValues.get(position).getTeacher_name());
+        holder.mCourseView.setText(course.getCourse_name());
+        holder.mTeacherView.setText(course.getTeacher_name());
+
         holder.note_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent((Context) mListener, CourseEditingActivity.class);
+                intent.putExtra("object", course);
+                ((Context) mListener).startActivity(intent);
+
                 /*if(null != mListener){
                     mListener.onCourseSelected(holder.mItem);
                 }*/
@@ -69,14 +74,15 @@ public class MyCoursesRecyclerViewAdapter extends
         public ViewHolder(View view) {
             super(view);
             //mView = view;
-            mCourseView = view.findViewById(R.id.textView);
-            mTeacherView = view.findViewById(R.id.textView2);
+            mCourseView = view.findViewById(R.id.courseName);
+            mTeacherView = view.findViewById(R.id.teacherName);
             note_card = view.findViewById(R.id.note_card);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mCourseView.getText() + "'";
+            return super.toString() + " '" + mCourseView.getText()
+                    + "'";
         }
     }
 }

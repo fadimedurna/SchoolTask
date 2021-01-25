@@ -38,7 +38,7 @@
             android:elevation="0dp" />
 
         <EditText
-            android:id="@+id/courseDetails_textCourseName"
+            android:id="@+id/textCourseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
@@ -51,7 +51,7 @@
             tools:targetApi="o" />
 
         <TextView
-            android:id="@+id/courseDetails_labelTeacher"
+            android:id="@+id/taskDetails_labelTeacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/fab_margin"
@@ -62,6 +62,28 @@
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Spacer"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/divider"
+            android:elevation="0dp" />
+
+        <EditText
+            android:id="@+id/textTeacherName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:ems="10"
+            android:hint="Teacher Name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
 
         <TextView
             android:id="@+id/subjectDetails_labelSpinnerError"
@@ -75,28 +97,6 @@
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/Spacer"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/divider"
-            android:elevation="0dp" />
-
-        <EditText
-            android:id="@+id/courseDetails_textTeacherName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fab_margin"
-            android:layout_marginRight="@dimen/fab_margin"
-            android:layout_marginBottom="@dimen/fab_margin"
-            android:ems="10"
-            android:hint="Teacher Name"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            tools:targetApi="o" />
-
 
     </LinearLayout>
 
@@ -109,23 +109,17 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/courseDetails_buttonSave"
+            android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:backgroundTint="@color/accent"
-            android:onClick="onSaveClick"
-            android:text="@string/string_save"
-            tools:ignore="OnClick" />
+            android:text="Save" />
 
         <Button
-            android:id="@+id/courseDetails_buttonBack"
+            android:id="@+id/buttonBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:backgroundTint="@color/accent"
             android:onClick="onCloseClick"
-            android:text="@string/string_back" />
+            android:text="Back" />
 
     </LinearLayout>
 

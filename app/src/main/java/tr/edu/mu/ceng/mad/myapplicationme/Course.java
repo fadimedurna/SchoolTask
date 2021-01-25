@@ -1,18 +1,22 @@
 package tr.edu.mu.ceng.mad.myapplicationme;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class Course implements Serializable {
-    private String course_name, teacher_name;
-    private String filePath;
+    private String id;
+    private String course_name;
+    private String teacher_name;
+
 
     public Course() {
     }
 
-    public Course(String course_name, String teacher_name, String filePath) {
+    public Course(String id,String course_name, String teacher_name) {
         this.course_name = course_name;
         this.teacher_name = teacher_name;
-        this.filePath = filePath;
+        this.id = id;
     }
 
     public String getCourse_name() {
@@ -31,11 +35,11 @@ public class Course implements Serializable {
         this.teacher_name = teacher_name;
     }
 
-    public String getFilePath() {
-        return filePath;
+    public String getId() {
+        return id;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setId(String id) {
+        this.id = id;
     }
 }

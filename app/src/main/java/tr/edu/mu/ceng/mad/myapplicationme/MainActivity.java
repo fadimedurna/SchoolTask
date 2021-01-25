@@ -2,16 +2,29 @@ package tr.edu.mu.ceng.mad.myapplicationme;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity  {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity  implements
+        CoursesFragment.OnCourseListInteractionListener{
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +54,11 @@ public class MainActivity extends AppCompatActivity  {
                             break;
 
                         case R.id.nav_tasks:
-                            selectedFragment = new TasksFragment();
+                            selectedFragment = new TaskFragment();
                             break;
 
                         case R.id.nav_exams:
                             selectedFragment = new ExamsFragment();
-                            break;
-
-                        case R.id.nav_settings:
-                            selectedFragment = new SettingsFragment();
                             break;
                         default:
                             throw new IllegalStateException("Unexpected value: " + item.getItemId());
@@ -62,4 +71,18 @@ public class MainActivity extends AppCompatActivity  {
                 }
             };
 
+
+    @Override
+    public void onCourseSelected(Course course) {
+        Log.d("TAG:", " onCourseSelected");
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 }

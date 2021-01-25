@@ -48,7 +48,7 @@
     <string name="string_add" tools:keep="@string/string_add">Add</string>
     <string name="string_delete">Delete</string>
     <string name="string_back" tools:keep="@string/string_back">Back</string>
-    <string name="string_name">Name</string>
+    <string name="string_name">Course Name</string>
     <string name="string_close">Close</string>
     <string name="string_edit">Edit</string>
     <string name="string_details" tools:keep="@string/string_details">Details</string>
